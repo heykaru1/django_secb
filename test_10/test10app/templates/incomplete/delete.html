@@ -1,0 +1,18 @@
+{%extends "layout/base.html" %}
+
+{% block title%}
+Delete Incomplete
+{% endblock title %}
+
+{% block content %}
+
+<h1>Delete Incomplete</h1>
+<p>Are you sure do you want to delete this "{{incomplete.incomplete}}"</p>
+
+<form action= "/incomplete/destroy/{{ incomplete.inc_id }}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn  btn-danger float-end">Yes</button>
+    <a href='/incompletes' class="btn btn-secondary float-end">No</a>
+</form>
+
+{% endblock content%}

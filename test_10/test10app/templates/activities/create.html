@@ -1,0 +1,25 @@
+{% extends "layout/base.html" %}
+
+{% block title %} 
+Create Activity 
+{% endblock title %} 
+
+{% block content  %}
+
+<div class="col-md-6 mx-auto">
+    <form action="/activity/store" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="activity">Activity</label>
+            <input type="text" class="form-control" id="activity" name="activity"/>
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" name="description"/>
+        </div>
+        <button type="submit" class="btn btn-success float-end col-12 col-md-3">Save Activity</button>
+        <a href="/activities" class="btn btn-secondary float-end col-12 col-md-3 me-1">Back</a>  
+    </form>
+</div> 
+
+
+{% endblock content  %}
+

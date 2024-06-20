@@ -1,0 +1,46 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+List of Incomplete
+{% endblock title %}
+
+{% block content %}
+<div class="navbar">
+    {% include "include/navbar.html" %}
+</div>
+<a href="/incomplete/create" class="btn btn-primary float-end mt-1 me-1">Add Incomplete</a>
+{% include "include/messages.html" %}
+<div class="col-md-6 mx-auto">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Incomplete ID</th>
+                    <th>Incomplete</th>
+                    <th>Date Created</th>
+                    <th>Date Updated</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for incomplete in incomplete %}
+                    <tr>
+                        <td>{{ incomplete.inc_id }}</td>
+                        <td>{{ incomplete.incomplete }}</td>
+                        <td>{{ incomplete.date_created }}</td>
+                        <td>{{ incomplete.date_updated }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="/incomplete/show/{{ incomplete.inc_id }}" class="btn btn-primary">View</a>
+                                <a href="/incomplete/edit/{{ incomplete.inc_id }}" class="btn btn-success">Edit</a>
+                                <a href="/incomplete/delete/{{ incomplete.inc_id }}" class="btn btn-danger">Delete</a>
+
+                            </div>      
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock content %}

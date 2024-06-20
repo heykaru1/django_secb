@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        {% include "include/navbar.main.html" %}
+    </div>
+    <header>
+        <h1>Teacher's Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="/genders">Manage Genders</a></li>
+                <li><a href="/users">Manage Users</a></li>
+                <li><a href="/incompletes">Manage Incomplete Users</a></li>
+                <li><a href="/activities">Manage Class Activities</a></li>
+            </ul>
+        </nav>
+    </header>   
+    <main>
+        <section>
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="gender/create">Create New Gender</a></li>
+                <li><a href="user/create">Create New User</a></li>
+                <li><a href="incomplete/create">Create New Incomplete User</a></li>
+                <li><a href="activity/create">Create New Class Activity</a></li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
